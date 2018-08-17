@@ -1,6 +1,6 @@
 {
   "name": "@funcmatic/response-plugin",
-  "version": "1.0.0-alpha",
+  "version": "1.1.0",
   "description": "API Gateway Proxy Integration response helper for the Funcmatic Lambda JS Framework",
   "main": "index.js",
   "scripts": {

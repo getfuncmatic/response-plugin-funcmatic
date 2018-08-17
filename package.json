@@ -13,10 +13,10 @@
     "url": "https://github.com/getfuncmatic/response-plugin-funcmatic.git"
   },
   "dependencies": {
+    "@funcmatic/funcmatic": "^1.1.0",
     "@funcmatic/lambda-response": "^1.0.5-alpha"
   },
   "devDependencies": {
-    "@funcmatic/funcmatic": "^1.0.0-alpha",
     "jest": "^21.2.1"
   },
   "jest": {

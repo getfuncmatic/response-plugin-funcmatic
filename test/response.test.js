@@ -1,7 +1,7 @@
 var Funcmatic = require('@funcmatic/funcmatic')
 var ResponsePlugin = require('../lib/response')
 
-var handler = Funcmatic.wrap(async (event, { res }) => {
+var handler = Funcmatic.wrap(async (event, context, { res }) => {
   return res.json({ hello: "world" })
 })
 

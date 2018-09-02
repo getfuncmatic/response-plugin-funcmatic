@@ -1,18 +1,19 @@
-var Funcmatic = require('@funcmatic/funcmatic')
+var funcmatic = require('@funcmatic/funcmatic')
 var ResponsePlugin = require('../lib/response')
 
-var handler = Funcmatic.wrap(async (event, context, { res }) => {
-  return res.json({ hello: "world" })
-})
+funcmatic.use(ResponsePlugin)
 
 describe('Request', () => {
   beforeEach(() => {
-    Funcmatic.clear()
   })
-  it ('should return a ', async () => {
-    Funcmatic.use(ResponsePlugin, { })
-    var ret = await handler({ }, { })
-    expect(ret).toMatchObject({
+  it ('should return json', async () => {
+    var event = { }
+    var context = { }
+    var res = await funcmatic.invoke(event, context, async (event, context, { res }) => {
+      expect(res).toBeTruthy()
+      return res.json({ hello: "world" })
+    })
+    expect(res).toMatchObject({
       statusCode: 200,
       headers: { 
         'content-type': 'application/json; charset=utf-8'
@@ -20,6 +21,5 @@ describe('Request', () => {
       body: JSON.stringify({ hello: "world" }),
       isBase64Encoded: false
     })
-    console.log("RET", ret)
   })
 }) 
